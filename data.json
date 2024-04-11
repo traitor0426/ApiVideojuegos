@@ -1,2 +1,28 @@
-{"Videojuegos":[
-    {"id":1,"Nombre":"Gears of War","Cantidad":"1","Precio":399.00,"Descripcion":"Gears of War es un videojuego de disparos en tercera persona desarrollado por Epic Games utilizando el motor de videojuego Unreal Engine 3."}]}
+{
+    "Videojuegos": [
+      {
+        "id": 1,
+        "Nombre": "Gears of War",
+        "Cantidad": 1,
+        "Precio": 399.00,
+        "Descripcion": "Gears of War es un videojuego de disparos en tercera persona desarrollado por Epic Games utilizando el motor de videojuego Unreal Engine 3.",
+        "subtotal": 399
+      },
+      {
+        "id": 2,
+        "Nombre": "The Legend of Zelda: Breath of the Wild",
+        "Cantidad": 1,
+        "Precio": 59.99,
+        "Descripcion": "The Legend of Zelda: Breath of the Wild es un juego de acción-aventura desarrollado y publicado por Nintendo para la consola Nintendo Switch.",
+        "subtotal": 59.99
+      },
+      {
+        "id": 3,
+        "Nombre": "Red Dead Redemption 2",
+        "Cantidad": 1,
+        "Precio": 49.99,
+        "Descripcion": "Red Dead Redemption 2 es un videojuego de acción-aventura western, desarrollado y publicado por Rockstar Games.",
+        "subtotal": 49.99
+      }
+    ]
+  }
