@@ -44,19 +44,19 @@ app.get('/', (req, res) => {
     res.send('Welcome to the API');
 });
 
-app.get('/videojuego', (req, res) => {
+app.get('/videojuegos', (req, res) => {
     const data = readData();
     res.json(data.videojuegos);
 });
 
-app.get('/videojuego/:id', (req, res) => {
+app.get('/videojuegos/:id', (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
     const sparePart = data.videojuegos.find((sparePart) => sparePart.id === id);
     res.json(sparePart);
 });
 
-app.post('/videojuego', (req, res) => {
+app.post('/videojuegos', (req, res) => {
     const data = readData();
     const body = req.body;
     const newSparePart = {
@@ -68,7 +68,7 @@ app.post('/videojuego', (req, res) => {
     res.json(newSparePart);
 });
 
-app.put('/videojuego/:id', (req, res) => {
+app.put('/videojuegos/:id', (req, res) => {
     const data = readData();
     const body = req.body;
     const id = parseInt(req.params.id);
@@ -82,7 +82,7 @@ app.put('/videojuego/:id', (req, res) => {
     res.json({ message: "Spare part updated successfully."})
 });
 
-app.delete('/videojuego/:id', (req, res) => {
+app.delete('/videojuegos/:id', (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
     const sparePartIndex = data.videojuegos.findIndex((sparePart) => sparePart.id === id);
