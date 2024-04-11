@@ -1,5 +1,5 @@
 {
-    "Videojuegos": [
+    "videojuegos": [
       {
         "id": 1,
         "Nombre": "Gears of War",
@@ -26,3 +26,4 @@
       }
     ]
   }
+  
