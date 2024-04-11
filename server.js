@@ -93,7 +93,7 @@ app.delete('/videojuegos/:id', (req, res) => {
 
 app.get('/inventarioTotal', (req, res) => {
     const data = readData();
-    const totalSum = data.videojuegos.reduce((sum, videojuego) => sum + videojuegos.Subtotal, 0);
+    const totalSum = data.videojuegos.reduce((sum, videojuego) => sum + videojuegos.subtotal, 0);
     res.json({ result: totalSum });
 });
 
