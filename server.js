@@ -16,7 +16,7 @@ const readData = () => {
         return JSON.parse(data);
     }catch(error) {
         console.log(error);
-        return { Videojuegos: [] };
+        return { videojuegos: [] };
     }
 };
 
@@ -46,35 +46,35 @@ app.get('/', (req, res) => {
 
 app.get('/videojuego', (req, res) => {
     const data = readData();
-    res.json(data.Videojuegos);
+    res.json(data.videojuegos);
 });
 
-app.get('/Videojuegos/:id', (req, res) => {
+app.get('/videojuego/:id', (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
-    const sparePart = data.Videojuegos.find((sparePart) => sparePart.id === id);
+    const sparePart = data.videojuegos.find((sparePart) => sparePart.id === id);
     res.json(sparePart);
 });
 
-app.post('/Videojuegos', (req, res) => {
+app.post('/videojuego', (req, res) => {
     const data = readData();
     const body = req.body;
     const newSparePart = {
-        id: data.Videojuegos.length + 1,
+        id: data.videojuegos.length + 1,
         ...body,
     };
-    data.Videojuegos.push(newSparePart);
+    data.videojuegos.push(newSparePart);
     writeData(data);
     res.json(newSparePart);
 });
 
-app.put('/Videojuegos/:id', (req, res) => {
+app.put('/videojuego/:id', (req, res) => {
     const data = readData();
     const body = req.body;
     const id = parseInt(req.params.id);
-    const sparePartIndex = data.Videojuegos.findIndex((sparePart) => sparePart.id === id);
-    data.Videojuegos[sparePartIndex] = {
-        ...data.Videojuegos[sparePartIndex],
+    const sparePartIndex = data.videojuegos.findIndex((sparePart) => sparePart.id === id);
+    data.videojuegos[sparePartIndex] = {
+        ...data.videojuegos[sparePartIndex],
         ...body,
     };
 
@@ -82,14 +82,27 @@ app.put('/Videojuegos/:id', (req, res) => {
     res.json({ message: "Spare part updated successfully."})
 });
 
-app.delete('/Videojuegos/:id', (req, res) => {
+app.delete('/videojuego/:id', (req, res) => {
     const data = readData();
     const id = parseInt(req.params.id);
-    const sparePartIndex = data.Videojuegos.findIndex((sparePart) => sparePart.id === id);
-    data.Videojuegos.splice(sparePartIndex, 1);
+    const sparePartIndex = data.videojuegos.findIndex((sparePart) => sparePart.id === id);
+    data.videojuegos.splice(sparePartIndex, 1);
     writeData(data);
     res.json({ message: "Spare part deleted successfully" });
 });
+
+app.get('/sumaTotal', (req, res) => {
+    const data = readData();
+    const totalSum = data.videojuegos.reduce((sum, videojuego) => sum + videojuego.precio, 0);
+    res.json({ result: totalSum });
+});
+
+app.get('/mult/:num1/:num2', (req, res) => {
+    const { num1, num2 } = req.params;
+    const product = parseInt(num1) * parseFloat(num2);
+    res.json({ result: product });
+});
+
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
